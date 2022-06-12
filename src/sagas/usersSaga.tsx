@@ -9,7 +9,7 @@ export type User = {
 
 function* getUsers() {
     try {
-        const users: { data: User[] } = yield call(() => axios.get("https://jsonplaceholder.typicode.com/users"));
+        const users: { data: User[] } = yield call(() => axios.get("api/users"));
         yield put({type: "GET_USERS_SUCCESS", users: users.data})
     } catch (e: any) {
         yield put({type: "GET_USERS_FAILED", error: e.message})
